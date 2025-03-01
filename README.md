@@ -1,6 +1,4 @@
 # VentureCart
-Practice StreamLit App
-# VentureCart
 
 VentureCart is a user-friendly web application designed for aspiring entrepreneurs who want to start their own business and sell products online. The platform allows users to manage their product listings, track purchases, and streamline the selling process.
 

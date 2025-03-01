@@ -490,16 +490,16 @@ def display_all_products():
 
 with st.sidebar:
     if st.session_state.signed_in_M:
-        st.session_state.selected = option_menu('Options', ['Show Employees', 'Add Employee', 'Add Product', 'Show Sales','Logout'])
+        st.session_state.selected = option_menu('Manager Menu', ['Show Employees', 'Add Employee', 'Add Product', 'Show Sales','Logout'])
 
     elif st.session_state.signed_in_E:
-        st.session_state.selected = option_menu('Options', ['Show Customers', 'Show Products', 'Remove Customer','Logout'])
+        st.session_state.selected = option_menu('Employee Menu', ['Show Customers', 'Show Products', 'Remove Customer','Logout'])
 
     elif st.session_state.signed_in_C:
-        st.session_state.selected = option_menu('Options', ['Buy Products', 'Show Cart','Logout'])
+        st.session_state.selected = option_menu('Customer Menu', ['Buy Products', 'Show Cart','Logout'])
 
     else:
-        st.session_state.selected = option_menu('Navigation', ['Sign-Up', 'Sign In'])
+        st.session_state.selected = option_menu('Dashboard', ['Sign-Up', 'Sign In'])
 
 
 if st.session_state.selected == "Sign-Up":

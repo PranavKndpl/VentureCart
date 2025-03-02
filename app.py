@@ -149,7 +149,7 @@ def signup():
         elif Password != Repass:
             st.error("Passwords do not match.")
         else:
-            Add_Customer(Name, Password, Gender, mail)
+            Add_Customer(Name, Password, Gender, Mail)
             st.success("User  registered successfully")
 
         conn.close()

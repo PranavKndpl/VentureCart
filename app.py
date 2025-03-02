@@ -141,7 +141,7 @@ def signup():
             conn.close()
             return
 
-        cur.execute("SELECT Email FROM Customers WHERE Email = ?", (mail,))
+        cur.execute("SELECT Email FROM Customers WHERE Email = ?", (Mail,))
         existing_email = cur.fetchone()
         
         if existing_email:

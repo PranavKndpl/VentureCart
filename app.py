@@ -139,7 +139,9 @@ def signup():
         cur.execute("SELECT Email FROM Customers WHERE Email = ?", (mail,))
         existing_email = cur.fetchone()
 
-        if existing_email:
+        if Name or mail or Password == "":
+            st.error("Cannot leave Empty")
+        elif existing_email:
             st.error("This email is already registered. Please use a different email.")
         elif Password != Repass:
             st.error("Passwords do not match.")
@@ -210,9 +212,9 @@ def show_customer():
     else:
         headers = ["Id","Name", "Password", "Gender", "Email"]
         data_dicts = [
-            {headers[0]: row[0], headers[1]: row[1], headers[2]: row[2], headers[3]: row[3]}
-            for row in result
-        ]
+        {headers[0]: row[0], headers[1]: row[1], headers[2]: row[2], headers[3]: row[3], headers[4]: row[4]}
+        for row in result
+    ]
 
         st.dataframe(data_dicts)
 
@@ -313,10 +315,12 @@ def add_employee():
             conn.commit()
             conn.close()
             return
-
-        if existing_email:
+        
+        elif Name or Password or mail == "":
+            st.error("cannot leave empty")
+        elif existing_email:
             st.error("This email user is already Employed.")
-        if Password != Repass:
+        elif Password != Repass:
             st.error("Passwords do not match.")
         else:
             Add_Employee(Name, Age, Password, Post, mail)

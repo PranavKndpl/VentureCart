@@ -142,7 +142,7 @@ def signup():
         cur.execute("SELECT Email FROM Customers WHERE Email = ?", (mail,))
         existing_email = cur.fetchone()
         
-        elif existing_email:
+        if existing_email:
             st.error("This email is already registered. Please use a different email.")
         elif Password != Repass:
             st.error("Passwords do not match.")

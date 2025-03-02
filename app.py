@@ -136,11 +136,12 @@ def signup():
         conn = connect_db()
         cur = conn.cursor()
 
-        cur.execute("SELECT Email FROM Customers WHERE Email = ?", (mail,))
-        existing_email = cur.fetchone()
-
         if Name == "" or Mail == "" or Password == "":
             st.error("Cannot leave Empty")
+
+        cur.execute("SELECT Email FROM Customers WHERE Email = ?", (mail,))
+        existing_email = cur.fetchone()
+        
         elif existing_email:
             st.error("This email is already registered. Please use a different email.")
         elif Password != Repass:

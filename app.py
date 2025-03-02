@@ -139,7 +139,7 @@ def signup():
         cur.execute("SELECT Email FROM Customers WHERE Email = ?", (mail,))
         existing_email = cur.fetchone()
 
-        if Name or mail or Password == "":
+        if Name == "" or mail == "" or Password == "":
             st.error("Cannot leave Empty")
         elif existing_email:
             st.error("This email is already registered. Please use a different email.")
@@ -316,7 +316,7 @@ def add_employee():
             conn.close()
             return
         
-        elif Name or Password or mail == "":
+        elif Name == "" or mail == "" or Password == "" or Post == "":
             st.error("cannot leave empty")
         elif existing_email:
             st.error("This email user is already Employed.")

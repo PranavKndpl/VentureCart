@@ -138,6 +138,8 @@ def signup():
 
         if Name == "" or Mail == "" or Password == "":
             st.error("Cannot leave Empty")
+            conn.close()
+            return
 
         cur.execute("SELECT Email FROM Customers WHERE Email = ?", (mail,))
         existing_email = cur.fetchone()

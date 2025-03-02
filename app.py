@@ -127,7 +127,7 @@ def signup():
     title_placeholder.markdown(f'<h1 class="title">{st.session_state.title}</h1>', unsafe_allow_html=True)
    
     Name = st.text_input("Enter your user Name")
-    mail = st.text_input("Enter your user Email")
+    Mail = st.text_input("Enter your user Email")
     Password = st.text_input("Enter your user Password", type="password")
     Repass = st.text_input("Enter your Password again", type="password")
     Gender = st.radio("Gender", options=["Male", "Female"])
@@ -139,7 +139,7 @@ def signup():
         cur.execute("SELECT Email FROM Customers WHERE Email = ?", (mail,))
         existing_email = cur.fetchone()
 
-        if Name == "" or mail == "" or Password == "":
+        if Name == "" or Mail == "" or Password == "":
             st.error("Cannot leave Empty")
         elif existing_email:
             st.error("This email is already registered. Please use a different email.")
